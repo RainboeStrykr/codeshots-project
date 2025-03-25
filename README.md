@@ -1,17 +1,24 @@
-# Nice Code
-![Nice Code](static/examples/nice-code.png?raw=true "Nice Code Example")
+# CodeShots
+![example](static/examples/nice-code.png?raw=true "Example")
 
-[Website URL](https://aidangp.github.io/nice-code/)
-## Why
-The main goal behind Nice Code was being able to present propperly formatted, aesthetic code. That's it.
+## 🔍 The Problem
+Sharing code online shouldn’t be messy, but it often is:
+❌ Plain text code looks dull and unstructured.
+❌ Screenshots from text editors lack consistency and customization.
+❌ Manually styling code for presentations or social media takes too much time.
 
 ## Features
-**Save Quickly** ~ Save your code snippets at the press of a button.
+CodeShots transforms your code into stunning, shareable screenshots with one click:
+✔️ **Syntax Highlighting** – Supports multiple languages for a clean, professional look.
+✔️ **Custom Themes & Backgrounds** - Choose between heaps of syntax themes to style your code for better readability and aesthetics.
+✔️ **One-Click Download & Share** – Save your code snippets at the press of a button. Perfect for social media, documentation, and presentations.
 
-**Multi-Language Support** ~ Enjoy good looking syntax highlighting for a multitude of languages.
+## Behind the Scenes
 
-**Wide variety of themes** ~ Choose between heaps of syntax themes.
+### Runs on
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-## Usage
-* Importing code is as easy as copy and pasting text in or dragging and dropping the desired file.
-* To download the image, simply press export
+### Uses
+The Codemirror library (https://codemirror.net) to enable syntax highlighting in the code input.
