@@ -3,14 +3,20 @@
 
 ## 🔍 The Problem
 Sharing code online shouldn’t be messy, but it often is:
+
 ❌ Plain text code looks dull and unstructured.
+
 ❌ Screenshots from text editors lack consistency and customization.
+
 ❌ Manually styling code for presentations or social media takes too much time.
 
 ## Features
 CodeShots transforms your code into stunning, shareable screenshots with one click:
+
 ✔️ **Syntax Highlighting** – Supports multiple languages for a clean, professional look.
+
 ✔️ **Custom Themes & Backgrounds** - Choose between heaps of syntax themes to style your code for better readability and aesthetics.
+
 ✔️ **One-Click Download & Share** – Save your code snippets at the press of a button. Perfect for social media, documentation, and presentations.
 
 ## Behind the Scenes
