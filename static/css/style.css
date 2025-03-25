@@ -1,0 +1,70 @@
+:root {
+  --bg: #F7A399;
+  --font: #EF6351;
+}
+
+html,
+body {
+  font-family: "Staatliches", sans-serif;
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+}
+
+li a,
+select {
+  display: block;
+  color: var(--font);
+  text-align: center;
+  border: 1px solid var(--font);
+  padding: 10px 12px;
+  text-decoration: none;
+  border-radius: 3px;
+  margin: 10px;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: lowercase;
+  font-size: 16px;
+}
+
+select {
+  background-color: transparent;
+  outline: none;
+}
+
+li a:hover,
+select:hover {
+  opacity: 0.6;
+}
+
+#header {
+  color: var(--font);
+  text-align: center;
+}
+
+#menu,
+#menu2 {
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+#container {
+  border: none;
+  max-width: 50%;
+  width: fit-content;
+  margin: auto;
+  padding: 30px;
+  border-radius: 4px;
+  background-color: var(--font);
+}
