@@ -1,6 +1,5 @@
 # CodeShots
-![example](static/examples/nice-code.png?raw=true "Example")
-
+![example](https://us-east-1.tixte.net/uploads/me.likes.cash/codeshots.png)
 ## 🔍 The Problem
 Sharing code online shouldn’t be messy, but it often is:
 
