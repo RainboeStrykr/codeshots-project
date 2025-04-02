@@ -43,7 +43,7 @@ function changeTheme(dropdown_option) {
     EDITOR.setOption('theme', theme_name);
 }
 
-const SITE_THEMES = [["#C3D0D5","#fca311"],
+const SITE_THEMES = [["#f1faee","#fca311"],
                     ["#f1faee","#0A100D"],
                     ["#f1faee","#e63946"],
                     ["#f1faee","#3083DC"],
