@@ -1,29 +1,40 @@
-# CodeShots
-![example](https://us-east-1.tixte.net/uploads/me.likes.cash/codeshots.png)
-## 🔍 The Problem
-Sharing code online shouldn’t be messy, but it often is:
+# Sinppix - Code Screenshot
 
-❌ Plain text code looks dull and unstructured.
+A powerful tool for sharing code snippets with additional features. Share beautiful screenshots of your code on your social media platforms.
 
-❌ Screenshots from text editors lack consistency and customization.
+Project Live at: https://snippix.vercel.app/
 
-❌ Manually styling code for presentations or social media takes too much time.
+---
 
-## Features
-CodeShots transforms your code into stunning, shareable screenshots with one click:
+## 🎨 Features
 
-✔️ **Syntax Highlighting** – Supports multiple languages for a clean, professional look.
+- 10+ elegant themes (light + dark theme included).
+- 12+ font styles (popular monospace fonts).
+- Auto-detection & syntax highlighting for all major programming languages.
+- Export as PNG/SVG, copy to clipboard, or share via link.
+- Change font size, background, padding, line numbers, and more.
 
-✔️ **Custom Themes & Backgrounds** - Choose between heaps of syntax themes to style your code for better readability and aesthetics.
+---
 
-✔️ **One-Click Download & Share** – Save your code snippets at the press of a button. Perfect for social media, documentation, and presentations.
+## 🧪 Technologies Used
 
-## Behind the Scenes
-
-### Runs on
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
-### Uses
-The Codemirror library (https://codemirror.net) to enable syntax highlighting in the code input.
+- [**React**](https://react.dev) – Front-end JavaScript library
+- [**Next.js**](https://nextjs.org) – Full-stack React framework with SSR
+- [**TypeScript**](https://www.typescriptlang.org) – Static typing for scalable
+  apps
+- [**Tailwind CSS**](https://tailwindcss.com) – Utility-first CSS framework
+- [**ShadCN UI**](https://ui.shadcn.dev) – Radix-powered component library
+  styled with Tailwind
+- [**Zustand**](https://github.com/pmndrs/zustand) – Simple and fast state
+  management
+- [**Highlight.js**](https://highlightjs.org) – Language detection and syntax
+  highlighting
+- [**React Simple Code Editor**](https://github.com/satya164/react-simple-code-editor)
+  – Lightweight code editor in the browser
+- [**HTML-to-Image**](https://github.com/bubkoo/html-to-image) – Converts DOM to
+  image using canvas/SVG
+- [**React Hot Toast**](https://react-hot-toast.com) – Sleek toast notifications
+- [**React Hotkeys Hook**](https://github.com/JohannesKlauss/react-hotkeys-hook)
+  – Keyboard shortcuts made easy
+- [**Resizable**](https://github.com/bokuweb/react-resizable-box) – Resizable
+  container component
