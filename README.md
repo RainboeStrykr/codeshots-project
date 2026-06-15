@@ -1,40 +1,23 @@
-# Codeshots - Code Screenshot
+# Codeshots
 
-A powerful tool for sharing code snippets with additional features. Share beautiful screenshots of your code on your social media platforms.
+> Turn your code into beautiful screenshots — instantly.
 
-Project Live at: https://codeshots.vercel.app/
+![Codeshots Demo](public/demo.png)
 
----
-
-## 🎨 Features
-
-- 10+ elegant themes (light + dark theme included).
-- 12+ font styles (popular monospace fonts).
-- Auto-detection & syntax highlighting for all major programming languages.
-- Export as PNG/SVG, copy to clipboard, or share via link.
-- Change font size, background, padding, line numbers, and more.
+**[Live Demo →](https://codeshots.vercel.app)**
 
 ---
 
-## 🧪 Technologies Used
+## Features
 
-- [**React**](https://react.dev) – Front-end JavaScript library
-- [**Next.js**](https://nextjs.org) – Full-stack React framework with SSR
-- [**TypeScript**](https://www.typescriptlang.org) – Static typing for scalable
-  apps
-- [**Tailwind CSS**](https://tailwindcss.com) – Utility-first CSS framework
-- [**ShadCN UI**](https://ui.shadcn.dev) – Radix-powered component library
-  styled with Tailwind
-- [**Zustand**](https://github.com/pmndrs/zustand) – Simple and fast state
-  management
-- [**Highlight.js**](https://highlightjs.org) – Language detection and syntax
-  highlighting
-- [**React Simple Code Editor**](https://github.com/satya164/react-simple-code-editor)
-  – Lightweight code editor in the browser
-- [**HTML-to-Image**](https://github.com/bubkoo/html-to-image) – Converts DOM to
-  image using canvas/SVG
-- [**React Hot Toast**](https://react-hot-toast.com) – Sleek toast notifications
-- [**React Hotkeys Hook**](https://github.com/JohannesKlauss/react-hotkeys-hook)
-  – Keyboard shortcuts made easy
-- [**Resizable**](https://github.com/bokuweb/react-resizable-box) – Resizable
-  container component
+- 10+ gradient backgrounds · light & dark mode
+- 12+ monospace fonts · adjustable font size & padding
+- Auto language detection & syntax highlighting
+- Export as PNG or SVG · copy image to clipboard
+- Resizable canvas · custom file name with language extension
+
+---
+
+## Stack
+
+[Next.js](https://nextjs.org) · [React](https://react.dev) · [TypeScript](https://www.typescriptlang.org) · [Tailwind CSS](https://tailwindcss.com) · [Zustand](https://github.com/pmndrs/zustand) · [Highlight.js](https://highlightjs.org) · [html-to-image](https://github.com/bubkoo/html-to-image)
