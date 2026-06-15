@@ -1,31 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-// export const usePreferencesStore = create(
-//   persist(
-//     () => ({
-//       code: "",
-//       title: "Untitled",
-//       theme: "hyper",
-//       darkMode: true,
-//       showBackground: true,
-//       language: "plaintext",
-//       autoDetectLanguage: false,
-//       fontSize: 16,
-//       fontStyle: "jetBrainsMono",
-//       padding: 64,
-//     }),
-//     {
-//       name: "user-preferences",
-//     }
-//   )
-// );
-
-// Persistent: Saves data to localStorage under the key user-preferences, so the state is retained after refreshing/restarting the app.
+import { languageExtensions } from "@/options";
 
 interface PreferencesState {
   code: string;
-  title: string;
+  fileName: string; // basename without extension, e.g. "Untitled"
   theme: string;
   darkMode: boolean;
   showBackground: boolean;
@@ -37,7 +16,7 @@ interface PreferencesState {
 
   // Setters
   setCode: (code: string) => void;
-  setTitle: (title: string) => void;
+  setFileName: (name: string) => void;
   setTheme: (theme: string) => void;
   toggleDarkMode: () => void;
   toggleBackground: () => void;
@@ -53,7 +32,7 @@ export const usePreferencesStore = create<PreferencesState>()(
   persist(
     (set) => ({
       code: "",
-      title: "Untitled",
+      fileName: "Untitled",
       theme: "hyper",
       darkMode: true,
       showBackground: true,
@@ -65,7 +44,7 @@ export const usePreferencesStore = create<PreferencesState>()(
 
       // Setters
       setCode: (code) => set({ code }),
-      setTitle: (title) => set({ title }),
+      setFileName: (fileName) => set({ fileName }),
       setTheme: (theme) => set({ theme }),
       toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
       toggleBackground: () =>
@@ -81,3 +60,9 @@ export const usePreferencesStore = create<PreferencesState>()(
     }
   )
 );
+
+/** Returns the full filename with extension, e.g. "Untitled.cs" */
+export function getFullFileName(fileName: string, language: string): string {
+  const ext = languageExtensions[language] ?? "txt";
+  return `${fileName}.${ext}`;
+}

@@ -11,6 +11,7 @@ import {
 import { toast } from "react-hot-toast";
 import { toBlob, toPng, toSvg } from "html-to-image";
 import { usePreferencesStore } from "@/store/use-preferences-store";
+import { getFullFileName } from "@/store/use-preferences-store";
 import { useHotkeys } from "react-hotkeys-hook";
 
 export default function ExportOptions({
@@ -18,7 +19,9 @@ export default function ExportOptions({
 }: {
   targetRef: React.RefObject<HTMLDivElement>;
 }) {
-  const title = usePreferencesStore((state) => state.title);
+  const fileName = usePreferencesStore((state) => state.fileName);
+  const language = usePreferencesStore((state) => state.language);
+  const title = getFullFileName(fileName, language);
 
   const copyImage = async () => {
     const loading = toast.loading("Copying...");

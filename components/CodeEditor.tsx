@@ -1,13 +1,16 @@
 import { cn } from "@/lib/utils";
 import flourite from "flourite";
-import { codeSnippets, fonts } from "@/options";
+import { codeSnippets, fonts, languageExtensions } from "@/options";
 import hljs from "highlight.js";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Editor from "react-simple-code-editor";
 import { usePreferencesStore } from "@/store/use-preferences-store";
 
 export default function CodeEditor() {
   const store = usePreferencesStore();
+  const ext = languageExtensions[store.language] ?? "txt";
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [inputWidth, setInputWidth] = useState<number>(0);
 
   // Add random code snippets on mount
   useEffect(() => {
@@ -19,13 +22,31 @@ export default function CodeEditor() {
   // Auto Detect Language
   useEffect(() => {
     if (store.autoDetectLanguage) {
-      // use flourite to detect language and provide highlighting
       const { language } = flourite(store.code, { noUnknown: true });
       usePreferencesStore.setState({
         language: language.toLowerCase() || "plaintext",
       });
     }
   }, [store.autoDetectLanguage, store.code]);
+
+  // Keep a hidden span in sync to measure the input width dynamically
+  useEffect(() => {
+    if (inputRef.current) {
+      const span = document.createElement("span");
+      span.style.cssText =
+        "position:absolute;visibility:hidden;white-space:pre;font-size:0.875rem;font-weight:500;";
+      span.textContent = store.fileName || " ";
+      document.body.appendChild(span);
+      setInputWidth(span.offsetWidth + 4);
+      document.body.removeChild(span);
+    }
+  }, [store.fileName]);
+
+  const handleFileNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Strip any dots — the extension is managed separately
+    const value = e.target.value.replace(/\./g, "");
+    usePreferencesStore.setState({ fileName: value });
+  };
 
   return (
     <div
@@ -42,21 +63,20 @@ export default function CodeEditor() {
           <div className="rounded-full h-2 w-2 bg-yellow-500"></div>
           <div className="rounded-full h-2 w-2 bg-green-500"></div>
         </div>
-        <div className="col-span-4 flex justify-center">
+        <div className="col-span-4 flex justify-center items-center">
           <input
+            ref={inputRef}
             type="text"
-            value={store.title}
-            onChange={(e) =>
-              usePreferencesStore.setState({ title: e.target.value })
-            }
+            value={store.fileName}
+            onChange={handleFileNameChange}
             spellCheck={false}
-            onClick={(e) => {
-              if (e.target instanceof HTMLInputElement) {
-                e.target.select();
-              }
-            }}
-            className="bg-transparent text-center text-gray-400 text-sm font-medium focus:outline-none"
+            onClick={(e) => (e.target as HTMLInputElement).select()}
+            style={{ width: inputWidth > 0 ? inputWidth : "auto" }}
+            className="bg-transparent text-center text-gray-400 text-sm font-medium focus:outline-none min-w-[1ch]"
           />
+          <span className="text-gray-400 text-sm font-medium select-none">
+            .{ext}
+          </span>
         </div>
       </header>
       <div
