@@ -2,15 +2,15 @@ import { cn } from "@/lib/utils";
 import flourite from "flourite";
 import { codeSnippets, fonts, languageExtensions } from "@/options";
 import hljs from "highlight.js";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Editor from "react-simple-code-editor";
 import { usePreferencesStore } from "@/store/use-preferences-store";
 
 export default function CodeEditor() {
   const store = usePreferencesStore();
   const ext = languageExtensions[store.language] ?? "txt";
+  const sizerRef = useRef<HTMLSpanElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const [inputWidth, setInputWidth] = useState<number>(0);
 
   // Add random code snippets on mount
   useEffect(() => {
@@ -29,21 +29,14 @@ export default function CodeEditor() {
     }
   }, [store.autoDetectLanguage, store.code]);
 
-  // Keep a hidden span in sync to measure the input width dynamically
+  // Sync input width to a hidden sizer span so it hugs the text exactly
   useEffect(() => {
-    if (inputRef.current) {
-      const span = document.createElement("span");
-      span.style.cssText =
-        "position:absolute;visibility:hidden;white-space:pre;font-size:0.875rem;font-weight:500;";
-      span.textContent = store.fileName || " ";
-      document.body.appendChild(span);
-      setInputWidth(span.offsetWidth + 4);
-      document.body.removeChild(span);
+    if (sizerRef.current && inputRef.current) {
+      inputRef.current.style.width = sizerRef.current.offsetWidth + "px";
     }
   }, [store.fileName]);
 
   const handleFileNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    // Strip any dots — the extension is managed separately
     const value = e.target.value.replace(/\./g, "");
     usePreferencesStore.setState({ fileName: value });
   };
@@ -63,7 +56,17 @@ export default function CodeEditor() {
           <div className="rounded-full h-2 w-2 bg-yellow-500"></div>
           <div className="rounded-full h-2 w-2 bg-green-500"></div>
         </div>
+
+        {/* Filename display: input + extension, no gap between them */}
         <div className="col-span-4 flex justify-center items-center">
+          {/* Hidden sizer — mirrors input text to compute exact width */}
+          <span
+            ref={sizerRef}
+            aria-hidden
+            className="absolute invisible whitespace-pre text-sm font-medium"
+          >
+            {store.fileName || " "}
+          </span>
           <input
             ref={inputRef}
             type="text"
@@ -71,10 +74,9 @@ export default function CodeEditor() {
             onChange={handleFileNameChange}
             spellCheck={false}
             onClick={(e) => (e.target as HTMLInputElement).select()}
-            style={{ width: inputWidth > 0 ? inputWidth : "auto" }}
-            className="bg-transparent text-center text-gray-400 text-sm font-medium focus:outline-none min-w-[1ch]"
+            className="bg-transparent text-gray-400 text-sm font-medium focus:outline-none min-w-[1ch] p-0 m-0 border-0"
           />
-          <span className="text-gray-400 text-sm font-medium select-none">
+          <span className="text-gray-400 text-sm font-medium select-none leading-none">
             .{ext}
           </span>
         </div>
