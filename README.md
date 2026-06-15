@@ -1,10 +1,16 @@
+<div align="center">
+
+<img src="app/android-chrome-192x192.png" alt="Codeshots Logo" width="80" />
+
 # Codeshots
 
 > Turn your code into beautiful screenshots — instantly.
 
-![Codeshots Demo](public/demo.png)
-
 **[Live Demo →](https://codeshots.vercel.app)**
+
+</div>
+
+![Codeshots Demo](public/demo.png)
 
 ---
 
