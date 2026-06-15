@@ -1,4 +1,4 @@
-import { themes } from "@/options";
+import { backgrounds } from "@/options";
 import {
   Select,
   SelectContent,
@@ -9,27 +9,26 @@ import {
 import { cn } from "@/lib/utils";
 import { usePreferencesStore } from "@/store/use-preferences-store";
 
-export default function ThemeSelect() {
-  const theme = usePreferencesStore((state) => state.theme);
+export default function BackgroundSelect() {
+  const background = usePreferencesStore((state) => state.background);
 
   return (
     <div>
       <label className="block mb-2 text-xs font-medium text-neutral-400">
-        Theme
+        Background
       </label>
       <Select
-        value={theme}
-        onValueChange={(theme) => theme && usePreferencesStore.setState({ theme })}
+        value={background}
+        onValueChange={(bg) => bg && usePreferencesStore.setState({ background: bg })}
       >
         <SelectTrigger className="w-40">
-          <SelectValue placeholder="Select Theme" />
+          <SelectValue placeholder="Select Background" />
         </SelectTrigger>
         <SelectContent>
-          {/* Object.entries(themes) returns an array of key-value pairs, where each pair consists of a theme name (name) and its corresponding theme object (theme) */}
-          {Object.entries(themes).map(([name, theme]) => (
+          {Object.entries(backgrounds).map(([name, bg]) => (
             <SelectItem key={name} value={name}>
               <div className="flex gap-2 items-center">
-                <div className={cn("h-4 w-4 rounded-full", theme.background)} />
+                <div className={cn("h-4 w-4 rounded-full", bg.background)} />
                 <span className="capitalize">{name}</span>
               </div>
             </SelectItem>

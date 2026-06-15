@@ -5,7 +5,7 @@ import { languageExtensions } from "@/options";
 interface PreferencesState {
   code: string;
   fileName: string; // basename without extension, e.g. "Untitled"
-  theme: string;
+  background: string;
   darkMode: boolean;
   showBackground: boolean;
   language: string;
@@ -17,7 +17,7 @@ interface PreferencesState {
   // Setters
   setCode: (code: string) => void;
   setFileName: (name: string) => void;
-  setTheme: (theme: string) => void;
+  setBackground: (background: string) => void;
   toggleDarkMode: () => void;
   toggleBackground: () => void;
   setLanguage: (language: string) => void;
@@ -33,7 +33,7 @@ export const usePreferencesStore = create<PreferencesState>()(
     (set) => ({
       code: "",
       fileName: "Untitled",
-      theme: "hyper",
+      background: "hyper",
       darkMode: true,
       showBackground: true,
       language: "plaintext",
@@ -45,7 +45,7 @@ export const usePreferencesStore = create<PreferencesState>()(
       // Setters
       setCode: (code) => set({ code }),
       setFileName: (fileName) => set({ fileName }),
-      setTheme: (theme) => set({ theme }),
+      setBackground: (background) => set({ background }),
       toggleDarkMode: () => set((state) => ({ darkMode: !state.darkMode })),
       toggleBackground: () =>
         set((state) => ({ showBackground: !state.showBackground })),

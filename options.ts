@@ -84,7 +84,7 @@ export const languages: Record<string, string> = {
   yaml: "YAML",
 };
 
-export const themes: Record<string, { background: string; theme: string }> = {
+export const backgrounds: Record<string, { background: string; theme: string }> = {
   hyper: {
     background: "bg-gradient-to-br from-fuchsia-500 via-red-600 to-orange-400",
     theme:

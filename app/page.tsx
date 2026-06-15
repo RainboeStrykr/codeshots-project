@@ -5,14 +5,14 @@ import { useRef } from "react";
 import { useState } from "react";
 import { usePreferencesStore } from "@/store/use-preferences-store";
 import { fonts } from "@/options";
-import { themes } from "@/options";
+import { backgrounds } from "@/options";
 import { cn } from "@/lib/utils";
 import CodeEditor from "@/components/CodeEditor";
 import WidthMeasurement from "@/components/WidthMeasurement";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Resizable } from "re-resizable";
-import ThemeSelect from "@/components/controls/ThemeSelect";
+import BackgroundSelect from "@/components/controls/BackgroundSelect";
 import LanguageSelect from "@/components/controls/LanguageSelect";
 import { ResetIcon } from "@radix-ui/react-icons";
 import FontSelect from "@/components/controls/FontSelect";
@@ -26,7 +26,7 @@ function App() {
   const [width, setWidth] = useState("auto");
   const [showWidth, setShowWidth] = useState(false);
 
-  const theme = usePreferencesStore((state) => state.theme);
+  const background = usePreferencesStore((state) => state.background);
   const padding = usePreferencesStore((state) => state.padding);
   const fontStyle = usePreferencesStore((state) => state.fontStyle);
   const showBackground = usePreferencesStore((state) => state.showBackground);
@@ -45,6 +45,8 @@ function App() {
       darkMode: state.darkMode === "true",
       fontSize: Number(state.fontSize || 18),
       padding: Number(state.padding || 64),
+      // support old shared links that used "theme"
+      background: state.background || state.theme || "hyper",
     });
   }, []);
 
@@ -52,7 +54,7 @@ function App() {
     <main className="dark min-h-screen flex flex-col gap-4 justify-center items-center bg-neutral-950 text-white p-4">
       <link
         rel="stylesheet"
-        href={themes[theme as keyof typeof themes].theme}
+        href={backgrounds[background as keyof typeof backgrounds].theme}
         crossOrigin="anonymous"
       />
       <link
@@ -75,7 +77,7 @@ function App() {
             className={cn(
               "overflow-hidden mb-2 transition-all ease-out",
               showBackground
-                ? themes[theme as keyof typeof themes].background
+                ? backgrounds[background as keyof typeof backgrounds].background
                 : "ring ring-neutral-900"
             )}
             style={{ padding }}
@@ -102,7 +104,7 @@ function App() {
 
       <Card className="p-6 w-fit bg-neutral-900/90 backdrop-blur">
         <CardContent className="flex flex-wrap gap-4 sm:gap-6 p-0">
-          <ThemeSelect />
+          <BackgroundSelect />
           <LanguageSelect />
           <FontSelect />
           <FontSizeInput />
