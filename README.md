@@ -4,7 +4,7 @@
 
 # Codeshots
 
-> Turn your code into beautiful screenshots — instantly.
+**Turn your code into beautiful screenshots — instantly.**
 
 **[Live Demo →](https://codeshots.vercel.app)**
 
